@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIV STUDIOS | Premium Barbershop in Lagos</title>
+<meta name="description" content="VIV STUDIOS - Premium grooming in Lagos. Book your cut on WhatsApp now. 09156002887">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav>
+    <div class="logo"><a href="/index.html"><img src="images/Viv-200.png" alt=""></a></div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#book">Book</a></li>
+    </ul>
+  </nav>
+
+<div class="hero" id="home">
+  <h1>Stay <span>Fresh.</span><br>Stay Confident.</h1>
+  <p>Premium grooming in Lagos. Sharp cuts. Clean fades.</p>
+  <a href="#book" class="btn">Book on WhatsApp</a>
+</div>
+
+<section id="services">
+  <h2 style="text-align:center">OUR SERVICES</h2>
+  <div class="grid">
+    <div class="card"><h3>✂️ Classic Cut</h3><p style="color:#ffcc00;font-weight:700">₦5,000</p><small>35 mins • Wash & Style</small></div>
+    <div class="card"><h3>🔥 Fade & Beard</h3><p style="color:#ffcc00;font-weight:700">₦4,000</p><small>25 mins</small></div>
+    <div class="card"><h3>💈 Skin Fade</h3><p style="color:#ffcc00;font-weight:700">₦6,000</p><small>40 mins • Detail Lineup</small></div>
+    <div class="card"><h3>🧔 Complete Package</h3><p style="color:#ffcc00;font-weight:700">₦8,000</p><small>Cut + Beard + Dye</small></div>
+  </div>
+</section>
+
+
+
+<section id="gallery" style="background:#151515">
+  <h2 style="text-align:center">GALLERY</h2>
+  <div class="gallery" style="margin-top:20px">
+    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80" alt="cut">
+    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80" alt="cut">
+    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b09?q=80" alt="cut">
+    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80" alt="cut">
+    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80" alt="cut">
+    <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80" alt="cut">
+  </div>
+  <p style="text-align:center;margin-top:15px;color:#888"></p>
+</section>
+
+<section id="book">
+  <h2 style="text-align:center">BOOK FOR HOME SERVICE</h2>
+  <form onsubmit="sendToWhatsApp(); return false;">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="tel" id="phone" placeholder="Your Phone" required>
+    <input type="text" id="address" placeholder="Your Address" required>
+    <textarea name="add-info" id="add-info" cols="5" rows="3" placeholder="ADDITIONAL INFORMATION"></textarea>
+    <select id="service" required>
+      <option value="">Select Service</option>
+      <option>Classic Cut - ₦5000</option>
+      <option>Fade & Beard - ₦3000</option>
+      <option>Skin Fade - ₦4000</option>
+      <option>Complete Package - ₦8000</option>
+    </select>
+    <input type="date" id="date" required>
+    <select id="time">
+      <option>Morning 9am-12pm</option>
+      <option>Afternoon 12pm-4pm</option>
+      <option>Evening 4pm-9pm</option>
+    </select>
+    <button class="btn" type="submit">Book</button>
+  </form>
+
+  <div style="margin-top:45px">
+  <h3 style="text-align:center;margin-bottom:15px">📍 Find VIV STUDIOS — Lagos</h3>
+  <iframe src="https://maps.google.com/maps?q=Lagos%20Nigeria&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="300" style="border:0;border-radius:15px" loading="lazy"></iframe>
+  <!-- <p style="text-align:center;margin-top:10px;color:#888"><small>Change map q= to exact street of VIV STUDIOS</small></p> -->
+  </div>
+</section>
+
+<footer>
+  <p style="color:#ffcc00;font-weight:700"><img src="images/Viv-50.png" alt="" width="40" height="30" style="border-radius: 50%;"></p>
+  <p>Premium Barbershop • Lagos, Nigeria</p>
+  <p>WhatsApp: 09156002887</p>
+  <p style="margin-top:15px">Open: Mon-Sat 9am - 9pm | Sun 2pm - 8pm</p>
+  <a href=""><p style="margin: 4px;">Privacy Policy</p></a>
+  <p style="margin-top:15px;font-size:12px">© 2026 VIV STUDIOS • Built by Kreations</p>
+</footer>
+
+<script>
+// VIV STUDIOS WHATSAPP NUMBER - INTERNATIONAL FORMAT
+const vivNumber = "2349156002887";
+
+function toggleMenu(){
+  document.getElementById('navLinks').classList.toggle('active');
+}
+
+function sendToWhatsApp(){
+  let name = document.getElementById('name').value;
+  let phone = document.getElementById('phone').value;
+  let service = document.getElementById('service').value;
+  let date = document.getElementById('date').value;
+  let time = document.getElementById('time').value;
+
+  let message = `Hi VIV STUDIOS!%0A%0A*NEW BOOKING*%0A%0AName: ${name}%0APhone: ${phone}%0AService: ${service}%0ADate: ${date}%0ATime: ${time}%0A%0AI booked from your website.`;
+  
+  window.open(`https://wa.me/${vivNumber}?text=${message}`, '_blank');
+}
+</script>
+
+</body>
+</html>
